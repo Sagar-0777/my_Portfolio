@@ -1,0 +1,48 @@
+.projects{padding:40px 0}
+.projects-controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:999px;cursor:pointer}
+.chip.active{background:var(--accent);color:white}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.project-card{background:var(--card);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.project-thumb{height:140px;background:linear-gradient(135deg, rgba(67, 15, 157, 0.2), rgba(76,29,149,0.12))}
+.project-body{padding:14px}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tech-tag {
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: var(--glass);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  color: var(--accent);
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: rgba(124, 58, 237, 0.1);
+  transform: translateY(-1px);
+}
+
+.project-links {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.project-links a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-links a:hover {
+  color: var(--text);
+}

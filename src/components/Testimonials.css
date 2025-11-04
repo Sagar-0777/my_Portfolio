@@ -1,0 +1,4 @@
+.testimonials{padding:60px 0}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.testimonial{background:var(--card);padding:14px;border-radius:8px}
+.testimonial footer{margin-top:8px;color:var(--muted)}

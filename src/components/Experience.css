@@ -1,0 +1,6 @@
+.experience{display:none}
+.timeline{display:flex;flex-direction:column;gap:18px}
+.timeline-item{display:flex;gap:12px;align-items:flex-start}
+.timeline-dot{width:12px;height:12px;border-radius:999px;background:var(--accent);margin-top:6px}
+.timeline-content{background:var(--card);padding:12px;border-radius:8px}
+.small{font-size:0.9rem}

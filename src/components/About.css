@@ -1,0 +1,12 @@
+.about{padding:40px 0}
+.about-grid{display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:center}
+.about-photo{width:320px;height:320px;border-radius:12px;background:linear-gradient(135deg,#1f2937, #111827);object-fit:cover;display:block}
+.about-content h2{margin-top:0;font-size:2.4rem}
+.about-content p{font-size:1.1rem;line-height:1.6;}
+.about-content .highlights{font-size: 1rem;}
+.highlights{margin-top:12px}
+.highlights li{margin-bottom:6px}
+@media(max-width:800px){
+  .about-grid{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .about-photo{margin:0 auto;width:280px;height:280px}
+}
