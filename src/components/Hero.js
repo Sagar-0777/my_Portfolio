@@ -16,7 +16,7 @@ export default function Hero(){
           </div>
         </div>
         <div className="hero-visual">
-          <img src={pone} alt="Sagar Roy" className="avatar" />
+          <img src={pone} alt="Sagar Roy" className="avatar show-on-desktop" />
         </div>
       </div>
       <div className="hero-bg"></div>

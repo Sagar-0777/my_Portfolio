@@ -45,6 +45,30 @@
   margin: auto 0;
   min-width: 80px;
   text-align: center;
+  background: var(--accent);
+  color: white !important;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 2px solid var(--accent);
+}
+
+.cert-link:hover {
+  background: transparent;
+  color: var(--accent) !important;
+}
+
+/* Ensure dark text in light mode */
+:root[data-theme='light'] .cert-link {
+  background: var(--accent);
+  color: white !important;
+}
+
+:root[data-theme='light'] .cert-link:hover {
+  background: transparent;
+  color: var(--accent) !important;
+  border-color: var(--accent);
 }
 
 .cert-card h4 {

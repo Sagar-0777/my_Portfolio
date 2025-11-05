@@ -6,7 +6,32 @@
 .about-content .highlights{font-size: 1rem;}
 .highlights{margin-top:12px}
 .highlights li{margin-bottom:6px}
+
+/* Desktop styles */
+@media (min-width: 801px) {
+  .mobile-photo {
+    display: none;
+  }
+  .desktop-photo {
+    display: block;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 800px) {
+  .desktop-photo {
+    display: none;
+  }
+  .mobile-photo {
+    display: block;
+  }
+}
 @media(max-width:800px){
   .about-grid{grid-template-columns:1fr;grid-template-rows:auto auto}
   .about-photo{margin:0 auto;width:280px;height:280px}
+  
+  /* On mobile, show About section image since Hero images are hidden */
+  .about-photos {
+    display: block;
+  }
 }

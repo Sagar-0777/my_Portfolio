@@ -76,6 +76,20 @@
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
+/* Show on desktop */
+@media (min-width: 901px) {
+  .show-on-desktop {
+    display: block;
+  }
+}
+
+/* Hide on mobile */
+@media (max-width: 900px) {
+  .show-on-desktop {
+    display: none;
+  }
+}
+
 .hero-bg {
   position: absolute;
   right: -10%;
@@ -104,5 +118,13 @@
   
   .hero-ctas {
     justify-content: center;
+  }
+
+  .hero-visual {
+    display: block;
+  }
+
+  .hero-visual .avatar:not(:first-child) {
+    display: none;
   }
 }
