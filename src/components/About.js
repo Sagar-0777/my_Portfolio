@@ -5,7 +5,7 @@ import ptwo from '../profilephoto/ptwo.jpg';
 
 export default function About(){
   return (
-    <section id="about" className="about">
+  <section id="about" className="about animate-on-scroll" data-delay="80">
       <div className="container">
         <div className="about-grid">
           <div className="about-photos">

@@ -22,7 +22,7 @@ const certificates = [
 
 export default function Education(){
   return (
-    <section id="education" className="education">
+  <section id="education" className="education animate-on-scroll" data-delay="170">
       <div className="container">
         <h2>Education & Certifications</h2>
 

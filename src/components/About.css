@@ -1,17 +1,80 @@
-.about{padding:40px 0}
-.about-grid{display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:center}
-.about-photo{width:320px;height:320px;border-radius:12px;background:linear-gradient(135deg,#1f2937, #111827);object-fit:cover;display:block}
-.about-content h2{margin-top:0;font-size:2.4rem}
-.about-content p{font-size:1.1rem;line-height:1.6;}
-.about-content .highlights{font-size: 1rem;}
-.highlights{margin-top:12px}
-.highlights li{margin-bottom:6px}
+.about {
+  padding: 40px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.about-photo {
+  width: 320px;
+  height: 320px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1f2937, #111827);
+  object-fit: cover;
+  display: block;
+  transition: all var(--motion-mid) var(--ease);
+  animation: photoReveal 0.8s var(--ease) both;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes photoReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9) rotate(-5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.about-photo:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.3);
+}
+
+.about-content h2 {
+  margin-top: 0;
+  font-size: 2.4rem;
+  animation: fadeInUp 0.6s var(--ease) 0.2s both;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  animation: fadeInUp 0.6s var(--ease) 0.3s both;
+}
+
+.about-content .highlights {
+  font-size: 1rem;
+  animation: fadeInUp 0.6s var(--ease) 0.4s both;
+}
+
+.highlights {
+  margin-top: 12px
+}
+
+.highlights li {
+  margin-bottom: 6px;
+  transition: transform var(--motion-fast) var(--ease);
+}
+
+.highlights li:hover {
+  transform: translateX(5px);
+  color: var(--accent);
+}
 
 /* Desktop styles */
 @media (min-width: 801px) {
   .mobile-photo {
     display: none;
   }
+
   .desktop-photo {
     display: block;
   }
@@ -22,14 +85,24 @@
   .desktop-photo {
     display: none;
   }
+
   .mobile-photo {
     display: block;
   }
 }
-@media(max-width:800px){
-  .about-grid{grid-template-columns:1fr;grid-template-rows:auto auto}
-  .about-photo{margin:0 auto;width:280px;height:280px}
-  
+
+@media(max-width:800px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto
+  }
+
+  .about-photo {
+    margin: 0 auto;
+    width: 280px;
+    height: 280px
+  }
+
   /* On mobile, show About section image since Hero images are hidden */
   .about-photos {
     display: block;

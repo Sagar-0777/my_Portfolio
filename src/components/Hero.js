@@ -5,7 +5,7 @@ import pone from '../profilephoto/pone.jpg';
 
 export default function Hero(){
   return (
-    <header id="home" className="hero">
+  <header id="home" className="hero animate-on-scroll" data-delay="50">
       <div className="hero-inner">
         <div className="hero-text">
           <h1>Hi, I'm Sagar</h1>

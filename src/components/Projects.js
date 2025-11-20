@@ -10,7 +10,7 @@ export default function Projects(){
   const filtered = filter==='All' ? projectsData : projectsData.filter(p=> p.tech.includes(filter));
 
   return (
-    <section id="projects" className="projects">
+  <section id="projects" className="projects animate-on-scroll" data-delay="140">
       <div className="container">
         <h2>Projects</h2>
         <div className="projects-controls">
@@ -20,7 +20,7 @@ export default function Projects(){
           ))}
         </div>
         <div className="projects-grid">
-          {filtered.map(p=> <ProjectCard key={p.id} p={p} />)}
+          {filtered.map((p,i)=> <ProjectCard key={p.id} p={p} index={i} />)}
         </div>
       </div>
     </section>

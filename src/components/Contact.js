@@ -47,7 +47,7 @@ export default function Contact(){
   }
 
   return (
-    <section id="contact" className="contact">
+  <section id="contact" className="contact animate-on-scroll" data-delay="200">
       <div className="container">
         <h2>Contact</h2>
         <div className="contact-grid">

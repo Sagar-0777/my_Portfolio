@@ -29,3 +29,143 @@ body{background:var(--bg);color:var(--text);margin:0;font-family:Inter,system-ui
 .muted{color:var(--muted)}
 .btn{background:var(--accent);color:white;padding:10px 16px;border-radius:8px;text-decoration:none;border:none}
 .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.08);}
+
+/* Animation utilities and motion system */
+:root{
+  --ease: cubic-bezier(.2,.9,.2,1);
+  --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-fast: 180ms;
+  --motion-mid: 360ms;
+  --motion-slow: 600ms;
+  --motion-slower: 800ms;
+}
+
+/* Entrance animations (used by animateOnScroll) */
+.animate-on-scroll{
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--motion-slow) var(--ease), transform var(--motion-slow) var(--ease), box-shadow var(--motion-mid) var(--ease);
+  will-change: transform, opacity;
+}
+
+.animate-on-scroll.in-view{
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered animation variants */
+.animate-on-scroll[data-delay="100"] { transition-delay: 100ms; }
+.animate-on-scroll[data-delay="200"] { transition-delay: 200ms; }
+.animate-on-scroll[data-delay="300"] { transition-delay: 300ms; }
+.animate-on-scroll[data-delay="400"] { transition-delay: 400ms; }
+
+/* Enhanced avatar with floating animation */
+.avatar{
+  transition: transform var(--motion-mid) var(--ease), box-shadow var(--motion-mid) var(--ease), filter var(--motion-mid) var(--ease);
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+.avatar:hover{ 
+  transform: translateY(-12px) rotate(-2deg) scale(1.05); 
+  box-shadow: 0 20px 40px rgba(124,58,237,0.4);
+  filter: brightness(1.1);
+}
+
+/* Gentle continuous float */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+/* Gradient shift animation for backgrounds */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Pulse glow effect */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(124,58,237,0.3); }
+  50% { box-shadow: 0 0 40px rgba(124,58,237,0.6); }
+}
+
+/* Smooth float for decorative visuals */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-15px) scale(1.05); opacity: 1; }
+}
+.hero-bg { 
+  animation: floaty 12s ease-in-out infinite, gradientShift 15s ease infinite; 
+  background-size: 200% 200%;
+}
+
+/* Enhanced project card with 3D tilt effect */
+.project-card{ 
+  transition: transform var(--motion-mid) var(--ease), box-shadow var(--motion-mid) var(--ease), filter var(--motion-fast) var(--ease);
+  transform-style: preserve-3d;
+}
+.project-card:hover{ 
+  transform: translateY(-8px) scale(1.02) rotateX(2deg); 
+  box-shadow: 0 20px 50px rgba(2,6,23,0.5);
+  filter: brightness(1.05);
+}
+
+/* Enhanced shimmer for primary buttons */
+.btn{ 
+  position: relative; 
+  overflow: hidden;
+  transition: transform var(--motion-fast) var(--ease), box-shadow var(--motion-mid) var(--ease);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124,58,237,0.4);
+}
+.btn::after{
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s var(--ease);
+  pointer-events: none;
+}
+.btn:hover::after{ left: 100%; }
+
+/* Ripple effect for interactive elements */
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Smooth scale animation */
+@keyframes smoothScale {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  0% { transform: translateX(-30px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  0% { transform: translateX(30px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Accessibility: respect user reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { 
+    animation-duration: 0.001ms !important; 
+    animation-iteration-count: 1 !important; 
+    transition-duration: 0.001ms !important; 
+  }
+  .animate-on-scroll, .hero-bg, .project-card, .avatar, .btn::after { 
+    animation: none !important; 
+    transition: none !important; 
+  }
+}

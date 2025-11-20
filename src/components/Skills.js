@@ -54,7 +54,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="skills">
+  <section id="skills" className="skills animate-on-scroll" data-delay="110">
       <div className="container">
         <h2>Skills</h2>
         <div className="skills-grid">

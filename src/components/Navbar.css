@@ -2,13 +2,26 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15));
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
+  animation: slideDown 0.6s var(--ease) both;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .nav:hover {
-  background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25));
 }
 
 .nav-container {
@@ -28,12 +41,13 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s var(--ease-elastic);
   z-index: 41;
+  cursor: pointer;
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(-3deg);
 }
 
 /* Mobile menu button */
@@ -44,6 +58,11 @@
   padding: 8px;
   cursor: pointer;
   z-index: 41;
+  transition: transform 0.3s var(--ease);
+}
+
+.mobile-menu-btn:hover {
+  transform: scale(1.1);
 }
 
 .hamburger {
@@ -65,8 +84,13 @@
   transition: all 0.3s ease;
 }
 
-.hamburger::before { top: -8px; }
-.hamburger::after { bottom: -8px; }
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
 
 /* Hamburger animation */
 .hamburger.open {
@@ -99,7 +123,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   opacity: 0.85;
-  transition: all 0.2s ease;
+  transition: all 0.3s var(--ease);
   position: relative;
   padding: 4px 0;
   white-space: nowrap;
@@ -107,7 +131,7 @@
 
 .nav-link:hover {
   opacity: 1;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .nav-link::after {
@@ -116,9 +140,10 @@
   width: 0;
   height: 2px;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--accent);
-  transition: width 0.3s ease;
+  transition: width 0.4s var(--ease-bounce);
 }
 
 .nav-link:hover::after {
@@ -147,8 +172,21 @@
     background: var(--bg);
     padding: 16px;
     gap: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    border-top: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideInMobile 0.3s var(--ease) both;
+  }
+
+  @keyframes slideInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .nav-links.mobile-open {
@@ -160,6 +198,12 @@
     width: 100%;
     text-align: center;
     padding: 12px;
+    transition: all 0.2s var(--ease);
+  }
+
+  .nav-link:hover {
+    background: rgba(124, 58, 237, 0.1);
+    border-radius: 8px;
   }
 
   .nav-link::after {
