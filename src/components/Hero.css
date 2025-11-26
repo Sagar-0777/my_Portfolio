@@ -112,6 +112,69 @@
   border-color: var(--accent);
 }
 
+/* Resume Download Button */
+.hero-ctas .btn-resume {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.hero-ctas .btn-resume::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+
+.hero-ctas .btn-resume:hover::before {
+  opacity: 1;
+}
+
+.hero-ctas .btn-resume:hover {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.download-icon {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s var(--ease);
+}
+
+.hero-ctas .btn-resume:hover .download-icon {
+  transform: translateY(3px);
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.hero-ctas .btn-resume span,
+.hero-ctas .btn-resume svg {
+  position: relative;
+  z-index: 1;
+}
+
 .avatar {
   width: 280px;
   height: 280px;
@@ -164,6 +227,7 @@
 
   .hero-ctas {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .hero-visual {
